@@ -4,7 +4,7 @@ export default ({ req })=>{
     if(typeof window === 'undefined'){
         return axios.create({
            // baseURL:"http://ingress-nginx-controller.ingress-nginx.svc.cluster.local",
-            baseURL:"http://anujdev-apps.online",
+            baseURL:"http://www.anujdev-apps.online",
             headers:req.headers
         });
     }else{
