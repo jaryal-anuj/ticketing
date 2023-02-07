@@ -40,7 +40,8 @@ docker push anujjaryal/orders
 docker push anujjaryal/payments
 docker push anujjaryal/tickets
 
-kubectl apply -f infra/k8s && kubectl apply -f infra/k8s-dev
+kubectl apply -f infra/k8s
+kubectl apply -f infra/k8s-dev
 
 kubectl rollout restart deployment auth-depl
 kubectl rollout restart deployment client-depl
