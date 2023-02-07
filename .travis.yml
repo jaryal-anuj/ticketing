@@ -1,0 +1,32 @@
+sudo: required
+services:
+  - docker
+env:
+  global:
+    - SHA=${git rev-parse HEAD}
+    - CLOUD_CORE_DISABLE_PROMPTS=1
+before_install:
+  - openssl aes-256-cbc -K $encrypted_9f3b5599b056_key -iv $encrypted_9f3b5599b056_iv
+    -in service-account.json.enc -out service-account.json -d
+  - curl https://sdk.cloud.google.com | bash > /dev/null;
+  - source $HOME/google-cloud-sdk/path.bash.inc
+  - gcloud components update kubectl
+  - gcloud auth activate-service-account --key-file service-account.json
+  - gcloud config set project ticketing-dev-373611
+  - gcloud config set compute/zone us-central1-c
+  - gcloud container clusters get-credentials ticketing-dev
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  - docker build -t anujjaryal/auth-test ./auth
+  - docker build -t anujjaryal/orders-test ./orders
+  - docker build -t anujjaryal/payments-test ./payments
+  - docker build -t anujjaryal/tickets-test ./tickets
+script:
+  - docker run -e CI=true anujjaryal/auth-test npm test:ci
+  - docker run -e CI=true anujjaryal/orders-test npm test:ci
+  - docker run -e CI=true anujjaryal/payments-test npm test:ci
+  - docker run -e CI=true anujjaryal/tickets-test npm test:ci
+deploy:
+  provider: script
+  script: bash ./deploy.sh
+  on:
+    branch: master

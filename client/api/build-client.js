@@ -3,8 +3,8 @@ import axios from "axios";
 export default ({ req })=>{
     if(typeof window === 'undefined'){
         return axios.create({
-           // baseURL:"http://ingress-nginx-controller.ingress-nginx.svc.cluster.local",
-            baseURL:"http://www.anujdev-apps.online",
+            baseURL:"http://ingress-nginx-controller.ingress-nginx.svc.cluster.local",
+           // baseURL:"http://www.anujdev-apps.online",
             headers:req.headers
         });
     }else{
