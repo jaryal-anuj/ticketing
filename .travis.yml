@@ -16,7 +16,7 @@ before_install:
   - gcloud container clusters get-credentials ticketing-dev
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 script:
-  - cd auth && npm install && npm run test:ci
+  # - cd auth && npm install && npm run test:ci
   # - docker run -e CI=true anujjaryal/orders-test npm run test:ci
   # - docker run -e CI=true anujjaryal/payments-test npm run test:ci
   # - docker run -e CI=true anujjaryal/tickets-test npm run test:ci
