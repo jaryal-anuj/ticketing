@@ -25,6 +25,7 @@
 # kubectl set image deployments/payments-depl payments=anujjaryal/payments:$SHA
 # kubectl set image deployments/tickets-depl tickets=anujjaryal/tickets:$SHA
 
+
 docker build -t anujjaryal/auth ./auth
 docker build -t anujjaryal/client ./client
 docker build -t anujjaryal/expiration ./expiration
