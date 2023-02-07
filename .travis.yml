@@ -12,9 +12,9 @@ before_install:
   - source $HOME/google-cloud-sdk/path.bash.inc
   - gcloud components update kubectl
   - gcloud auth activate-service-account --key-file service-account.json
-  - gcloud config set project ticketing-dev-373611
+  - gcloud config set project ticketing-dev-377110
   - gcloud config set compute/zone us-central1-c
-  - gcloud container clusters get-credentials ticketing-dev
+  - gcloud container clusters get-credentials ticketing
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 script:
   # - cd auth && npm install && npm run test:ci
