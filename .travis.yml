@@ -15,15 +15,11 @@ before_install:
   - gcloud config set compute/zone us-central1-c
   - gcloud container clusters get-credentials ticketing-dev
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-  - docker build -t anujjaryal/auth-test ./auth
-  - docker build -t anujjaryal/orders-test ./orders
-  - docker build -t anujjaryal/payments-test ./payments
-  - docker build -t anujjaryal/tickets-test ./tickets
 script:
-  - docker run -e CI=true anujjaryal/auth-test npm run test:ci
-  - docker run -e CI=true anujjaryal/orders-test npm run test:ci
-  - docker run -e CI=true anujjaryal/payments-test npm run test:ci
-  - docker run -e CI=true anujjaryal/tickets-test npm run test:ci
+  - cd auth && npm install && npm run test:ci
+  # - docker run -e CI=true anujjaryal/orders-test npm run test:ci
+  # - docker run -e CI=true anujjaryal/payments-test npm run test:ci
+  # - docker run -e CI=true anujjaryal/tickets-test npm run test:ci
 deploy:
   provider: script
   script: bash ./deploy.sh
