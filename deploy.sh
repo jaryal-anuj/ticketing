@@ -18,10 +18,10 @@ docker push anujjaryal/orders:$SHA
 docker push anujjaryal/payments:$SHA
 docker push anujjaryal/tickets:$SHA
 kubectl apply -f infra/k8s && kubectl apply -f infra/k8s-dev
-kubectl set image deployments/auth-depl server=anujjaryal/auth:$SHA
-kubectl set image deployments/client-depl server=anujjaryal/client:$SHA
-kubectl set image deployments/expiration-depl server=anujjaryal/expiration:$SHA
-kubectl set image deployments/orders-depl server=anujjaryal/orders:$SHA
-kubectl set image deployments/payments-depl server=anujjaryal/payments:$SHA
-kubectl set image deployments/tickets-depl server=anujjaryal/tickets:$SHA
+kubectl set image deployments/auth-depl auth=anujjaryal/auth:$SHA
+kubectl set image deployments/client-depl client=anujjaryal/client:$SHA
+kubectl set image deployments/expiration-depl expiration=anujjaryal/expiration:$SHA
+kubectl set image deployments/orders-depl orders=anujjaryal/orders:$SHA
+kubectl set image deployments/payments-depl payments=anujjaryal/payments:$SHA
+kubectl set image deployments/tickets-depl tickets=anujjaryal/tickets:$SHA
 
