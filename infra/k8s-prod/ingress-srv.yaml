@@ -6,14 +6,14 @@ metadata:
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/use-regx: 'true'
     nginx.ingress.kubernetes.io/rewrite-target: /$1
-    cert-manager.io/cluster-issuer: 'letsencrypt-prod'
-    nginx.ingress.kubernetes.io/ssl-redirect: 'true'
+    # cert-manager.io/cluster-issuer: 'letsencrypt-prod'
+    # nginx.ingress.kubernetes.io/ssl-redirect: 'true'
 spec:
-  tls:
-    - hosts:
-        - anujdev-apps.online
-        - www.anujdev-apps.online
-      secretName: anujdev-apps.online
+  # tls:
+  #   - hosts:
+  #       - anujdev-apps.online
+  #       - www.anujdev-apps.online
+  #     secretName: anujdev-apps.online
   rules:
     - host: anujdev-apps.online
       http:
