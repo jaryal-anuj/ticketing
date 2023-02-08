@@ -3,7 +3,7 @@ kind: Certificate
 metadata:
   name: anujdev-apps.online-tls
 spec:
-  secretName: anujdev-apps.online
+  secretName: anujdev-apps-online
   issuerRef:
     name: letsencrypt-prod
     kind: ClusterIssuer
