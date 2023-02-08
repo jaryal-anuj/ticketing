@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: anujdev-apps.online-tls
+spec:
+  secretName: anujdev-apps.online
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  commonName: anujdev-apps.online
+  dnsNames:
+    - anujdev-apps.online
+    - www.anujdev-apps.online
