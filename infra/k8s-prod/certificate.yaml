@@ -7,7 +7,6 @@ spec:
   issuerRef:
     name: letsencrypt-prod
     kind: ClusterIssuer
-    namespace: cert-manager
   commonName: anujdev-apps.online
   dnsNames:
     - anujdev-apps.online
