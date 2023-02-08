@@ -116,7 +116,7 @@ spec:
       protocol: TCP
       targetPort: http
     - name: https
-      port: 443
+      port: 445
       protocol: TCP
       targetPort: https
   selector:
