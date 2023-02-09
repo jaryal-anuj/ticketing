@@ -5,7 +5,7 @@ export default ({ req })=>{
     if(typeof window === 'undefined'){
         let baseURL = "http://ingress-nginx-controller.ingress-nginx.svc.cluster.local";
         if(req.headers.host.includes('anujdev-apps.online')){
-            baseURL="https://www.anujdev-apps.online";
+            baseURL="http://www.anujdev-apps.online";
         }
         return axios.create({
             baseURL:baseURL,
