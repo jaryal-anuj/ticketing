@@ -7,7 +7,7 @@ COPY src ./src
 RUN npm install --omit=dev
 RUN npm run build
 
-FROM builder
+FROM builder as runner
 WORKDIR /app
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/build .
