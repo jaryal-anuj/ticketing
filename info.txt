@@ -1,10 +1,12 @@
 kubectl -n kubernetes-dashboard create token admin-user
 kubectl create secret generic jwt-secret --from-literal=JWT_KEY=asdf
 kubectl create secret generic stripe-secret --from-literal=STRIPE_KEY=sk_test_51MUlydCEnlba39tQ1fPxEsKhXCFXYk1neJh3ZKYeoaolCpHKa2n2J2zMBsw3gXq67qClhfUeCMBsFZ4SYDRnf0un00EIifQ9ON
-
+kubectl -n kubernetes-dashboard create token admin-user
+-------------------------------------------------------------------------------------
 docker run -it -v ${pwd}:/app ruby sh
 gem install travis
 travis login --github-token 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 --com
 travis encrypt-file service-account.json -r jaryal-anuj/ticketing --com
 
 openssl aes-256-cbc -K $encrypted_9f3b5599b056_key -iv $encrypted_9f3b5599b056_iv -in service-account.json.enc -out service-account.json -d
+============================---------------------------------------------------------
