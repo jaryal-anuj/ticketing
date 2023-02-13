@@ -15,6 +15,7 @@ RUN npm run build
 
 FROM base AS runner
 WORKDIR /app
+COPY --from=deps /app/node_modules ./node_modules
 COPY --from=builder /app/build .
 RUN npm install pm2 -g
 CMD ["pm2-runtime","index.js"]
