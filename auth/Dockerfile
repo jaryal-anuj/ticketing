@@ -1,11 +1,16 @@
-FROM node:16-alpine
+FROM node:16-alpine as builder
 
 WORKDIR /app
 COPY package.json .
 COPY tsconfig.json .
+COPY src ./src
 RUN npm install --omit=dev
-RUN npm install pm2 -g
 RUN npm run build
-COPY ./build .
 
-CMD ["pm2","index.js"]
+FROM node:16-alpine
+WORKDIR /app
+COPY package.json .
+RUN npm install --omit=dev
+COPY --from=builder /app/build .
+RUN npm install pm2 -g
+CMD ["pm2-runtime","app.js"]
