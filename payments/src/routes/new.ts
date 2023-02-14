@@ -2,7 +2,7 @@ import express, { Request, Response } from 'express';
 import { requireAuth,validateRequest, NotFoundError, BadRequestError, NotAuthorizedError, OrderStatus } from '@anujkmr/common';
 import {body} from 'express-validator';
 import { Order } from '../models/order';
-import { stripe } from '../stripe';
+import  stripe  from '../stripe';
 import { Payment } from '../models/payment';
 import { PaymentCreatedPublisher } from '../events/publishers/payment-created-publisher';
 import { natsWrapper } from '../nats-wrapper';
