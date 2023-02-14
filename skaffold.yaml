@@ -22,7 +22,7 @@ build:
     - image: anujjaryal/tickets
       context: tickets
       docker:
-        dockerfile: Dockerfile
+        dockerfile: Dockerfile.dev
       sync:
         manual:
           - src: 'src/**/*.ts'
@@ -30,7 +30,7 @@ build:
     - image: anujjaryal/orders
       context: orders
       docker:
-        dockerfile: Dockerfile
+        dockerfile: Dockerfile.dev
       sync:
         manual:
           - src: 'src/**/*.ts'
@@ -38,7 +38,7 @@ build:
     - image: anujjaryal/client
       context: client
       docker:
-        dockerfile: Dockerfile
+        dockerfile: Dockerfile.dev
       sync:
         manual:
           - src: '**/*.js'
@@ -46,7 +46,7 @@ build:
     - image: anujjaryal/expiration
       context: expiration
       docker:
-        dockerfile: Dockerfile
+        dockerfile: Dockerfile.dev
       sync:
         manual:
           - src: 'src/**/*.ts'
@@ -54,7 +54,7 @@ build:
     - image: anujjaryal/payments
       context: payments
       docker:
-        dockerfile: Dockerfile
+        dockerfile: Dockerfile.dev
       sync:
         manual:
           - src: 'src/**/*.ts'

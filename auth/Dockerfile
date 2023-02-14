@@ -1,9 +1,10 @@
-FROM node:16-alpine AS base
+FROM node:18-alpine AS base
 
 FROM base as deps
+RUN apk add --no-cache libc6-compat
 WORKDIR /app
-COPY package.json .
-RUN npm install --omit=dev
+COPY package.json package-lock.json ./
+RUN npm ci --omit=dev
 
 FROM base AS builder
 WORKDIR /app
